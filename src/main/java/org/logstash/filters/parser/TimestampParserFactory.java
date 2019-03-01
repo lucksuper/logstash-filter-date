@@ -29,6 +29,7 @@ public class TimestampParserFactory {
   private static final String ISO8601 = "ISO8601";
   private static final String UNIX = "UNIX";
   private static final String UNIX_MS = "UNIX_MS";
+  private static final String UNIX_NS = "UNIX_NS";
   private static final String TAI64N = "TAI64N";
 
   /*
@@ -56,6 +57,8 @@ public class TimestampParserFactory {
         return new TAI64NParser();
       case UNIX_MS: // Unix epoch in milliseconds
         return new UnixMillisEpochParser();
+      case UNIX_NS: // Unix epoch in milliseconds
+        return new UnixiNSEpochParser();
       default:
         return new JodaParser(pattern, locale, tz);
     }
